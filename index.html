@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gradient Generator App">
+
+    <!-- Metadata PWA-->
+    <meta name="theme-color" content="#f5f5dc">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Gradient</title>
+
+    <!-- PWA Icons-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-startup-image" href="images/favicon.png" type="image/png">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <hr />
+
+        <form>
+            <label>Color 1 <input type="color" v-model="firstColor" /></label>{{ firstColor }}
+            &nbsp;
+            <label>Color 2 <input type="color" v-model="secondColor" /></label>{{ secondColor }}
+        </form>
+
+        <br />
+
+        <form>
+            <label><input type="text" :value="setColor"/></label>
+
+            <br />
+
+            <label>
+                <input type="radio" value="1" v-model.number="orientation" />
+                Right
+                <input type="radio" value="2" v-model.number="orientation" />
+                Left
+                <input type="radio" value="3" v-model.number="orientation" />
+                Top
+                <input type="radio" value="4" v-model.number="orientation" />
+                Bottom
+            </label>
+        </form>
+
+        <br />
+
+        <div class="area" :style="setColor"></div>
+    </div>
+
+    <script src="load.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mountApp.js"></script>
+</body>
+</html>
